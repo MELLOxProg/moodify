@@ -1,0 +1,47 @@
+# Environment variables
+.env
+.env.*
+!**/.env.example
+!**/.env.sample
+!**/.env.template
+
+# Dependencies
+**/node_modules/
+
+# Package manager caches
+.npm/
+.pnpm-store/
+.yarn/
+
+# Tool caches
+.cache/
+.eslintcache
+.vite/
+*.tsbuildinfo
+
+# Build outputs
+dist/
+dist-ssr/
+build/
+coverage/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Editor and OS files
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
