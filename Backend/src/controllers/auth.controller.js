@@ -1,6 +1,8 @@
 const userModel = require("../models/user.model");
+const blacklistModel = require("../models/blacklist.model");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const redis = require("../config/cache");
 
 async function registerUser(req, res) {
   const { username, email, password } = req.body;
@@ -38,7 +40,7 @@ async function loginUser(req, res) {
   const { email, password, username } = req.body;
   const user = await userModel.findOne({
     $or: [{ email }, { username }],
-  });
+  }).select("+password"); // Include the password field in the query result
 
   if (!user) {
     return res.status(400).json({ message: "Invalid credentials." });
@@ -66,4 +68,19 @@ async function loginUser(req, res) {
   });
 }
 
-module.exports = { registerUser, loginUser };
+async function getMe(req, res) {
+  const user = await userModel.findById(req.user.id);
+
+  return res.status(200).json({ message: "User retrieved successfully", user });
+}
+
+async function logoutUser(req, res) {
+  const token = req.cookies.token;
+  res.clearCookie("token");
+
+  await redis.set(token, Date.now().toString(), "EX", 60 * 60); // key-value pair set. key is the token and value is the current timestamp. This will be used to check if the token is blacklisted or not.
+
+  return res.status(200).json({ message: "User logged out successfully" });
+}
+
+module.exports = { registerUser, loginUser, getMe, logoutUser };
