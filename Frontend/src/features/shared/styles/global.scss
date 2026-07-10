@@ -1,0 +1,100 @@
+@use "./button.scss";
+
+/* ---------------- GOOGLE SANS ---------------- */
+
+@font-face {
+  font-family: "Google Sans";
+  src: url("../../../assets/fonts/GoogleSans-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Google Sans";
+  src: url("../../../assets/fonts/GoogleSans-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Google Sans";
+  src: url("../../../assets/fonts/GoogleSans-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Google Sans";
+  src: url("../../../assets/fonts/GoogleSans-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* ---------------- RESET ---------------- */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ---------------- GLOBAL ---------------- */
+
+html {
+  font-size: 16px;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100vh;
+
+background:
+    radial-gradient(circle at top, rgba(94,130,255,.15), transparent 30%),
+    radial-gradient(circle at bottom, rgba(85,50,255,.08), transparent 40%),
+    #101218;
+  color: whitesmoke;
+
+  font-family: "Google Sans", system-ui, sans-serif;
+  font-weight: 400;
+
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+strong,
+b {
+  font-weight: 700;
+}
+
+a {
+  color: #ba1cc9;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #d94eff;
+}

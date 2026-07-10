@@ -1,3 +1,4 @@
+// no longer needed 
 const mongoose = require("mongoose");
 
 const blacklistSchema = new mongoose.Schema(
