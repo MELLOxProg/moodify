@@ -14,6 +14,8 @@
 .yarn/
 
 # Tool caches
+.agents
+.agents/
 .cache/
 .eslintcache
 .vite/

@@ -36,9 +36,7 @@ export default function FaceExpression({ onClick = () => {} }) {
         playsInline
       />
       <h2>{expression}</h2>
-      <button className="counter" onClick={handleClick}>
-        Detect expression
-      </button>
+      <button className="button" onClick={handleClick}>Detect expression</button>
     </div>
   );
 }
