@@ -7,7 +7,6 @@ const songRoutes = require("./routes/songs.routes");
 
 const allowedOrigins = [
   process.env.FRONTEND_URL,
-  "https://moodify-fawn-gamma.vercel.app",
   "http://localhost:5173"
 ].filter(Boolean);
 
