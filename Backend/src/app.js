@@ -5,9 +5,17 @@ const app = express();
 const authRoutes = require("./routes/auth.routes");
 const songRoutes = require("./routes/songs.routes");
 
+const allowedOrigins = [process.env.FRONTEND_URL, "http://localhost:5173"].filter(Boolean);
+
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+
+      return callback(new Error("Not allowed by CORS"));
+    },
     credentials: true,
   }),
 );

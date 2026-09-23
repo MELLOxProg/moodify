@@ -15,7 +15,7 @@ const formatTime = (seconds) => {
 };
 
 const Player = () => {
-  const { song } = useSong();
+  const { song, goToNextSong, goToPreviousSong } = useSong();
 
   const audioRef = useRef(null);
   const progressRef = useRef(null);
@@ -28,7 +28,6 @@ const Player = () => {
   const [showSpeed, setShowSpeed] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
 
-  // Reset player when song changes
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.load();
@@ -172,11 +171,11 @@ const Player = () => {
           )}
         </div>
 
-        {/* Backward 5s */}
+        {/* Previous song */}
         <button
           className="player__btn player__btn--skip"
-          onClick={() => skip(-5)}
-          title="Back 5s"
+          onClick={goToPreviousSong}
+          title="Previous song"
         >
           <svg
             viewBox="0 0 24 24"
@@ -186,10 +185,9 @@ const Player = () => {
             width="20"
             height="20"
           >
-            <path d="M1 4v6h6" />
-            <path d="M3.51 15a9 9 0 1 0 .49-3.6" />
+            <path d="M15 18l-6-6 6-6" />
           </svg>
-          <span>5s</span>
+          <span>Prev</span>
         </button>
 
         {/* Play / Pause */}
@@ -210,13 +208,13 @@ const Player = () => {
           )}
         </button>
 
-        {/* Forward 5s */}
+        {/* Next song */}
         <button
           className="player__btn player__btn--skip"
-          onClick={() => skip(5)}
-          title="Forward 5s"
+          onClick={goToNextSong}
+          title="Next song"
         >
-          <span>5s</span>
+          <span>Next</span>
           <svg
             viewBox="0 0 24 24"
             fill="none"
@@ -225,8 +223,7 @@ const Player = () => {
             width="20"
             height="20"
           >
-            <path d="M23 4v6h-6" />
-            <path d="M20.49 15a9 9 0 1 1-.49-3.6" />
+            <path d="M9 18l6-6-6-6" />
           </svg>
         </button>
 
