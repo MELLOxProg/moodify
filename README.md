@@ -2,6 +2,12 @@
 
 ![](Frontend/src/assets/moodify.png)
 
+<p align="center">
+  <a href="https://moodify-fawn-gamma.vercel.app/">
+    <img src="https://img.shields.io/badge/%F0%9F%9A%80_Live_Demo-moodify--fawn--gamma.vercel.app-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Demo" />
+  </a>
+</p>
+
 Moodify is a full-stack MERN music experience that turns real-time facial expression detection into personalized music playback. The app uses the browser's webcam with MediaPipe face landmarking to identify the user's current mood, then fetches and plays a song that matches that expression. It combines a React + Vite frontend, a custom glassmorphism UI, cookie-based JWT authentication, MongoDB persistence, Redis-backed token blacklisting, and an Express API for mood-matched songs. Moodify also includes a custom audio player with playback controls, speed selection, seeking, volume control, and dynamic song metadata.
 
 ## Screenshots
